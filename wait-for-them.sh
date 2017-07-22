@@ -35,7 +35,10 @@ USAGE
 }
 
 
-CMD=${CMD:=./wait-for-it.sh}
+BASEDIR=$(dirname "$0")
+echo "$BASEDIR"
+
+CMD=${CMD:=$BASEDIR/wait-for-it.sh}
 
 # parse the environmental variables
 IFS=',' read -ra HOSTS <<< "$WAIT_FOR_THEM_HOSTS"
