@@ -49,7 +49,7 @@ len1=${#HOSTS[@]}
 len2=${#PORTS[@]}
 
 if [[ $len1 -ne $len2 ]]; then
-    echoerr "environmental variables WAIT_FOR_THEM_HOSTS and WAIT_FOR_THEM_PORTS must be equal length"
+    echoerr "$cmdname: environmental variables WAIT_FOR_THEM_HOSTS and WAIT_FOR_THEM_PORTS must be equal length"
     exit 1
 fi
 
@@ -75,7 +75,7 @@ do
         exit 0
         ;;
         *)
-        echoerr "Unknown argument: $1"
+        echoerr "$cmdname: Unknown argument: $1"
         usage
         exit 1
         ;;
@@ -83,7 +83,7 @@ do
 done
 
 if [[ $CLI == "" ]]; then
-    echoerr "No command arguments passed in"
+    echoerr "$cmdname: No command arguments passed in"
     usage
     exit 1
 fi
@@ -91,7 +91,7 @@ fi
 
 i=0
 len=${#HOSTS[@]}
-echo "waiting for $len dependencies to be up ..."
+echo "$cmdname: waiting for $len dependencies to be up ..."
 while [[ $i -lt $len ]]
 do
     if [[ $i -eq $len-1 ]]; then
