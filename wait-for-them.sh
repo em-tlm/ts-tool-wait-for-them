@@ -36,7 +36,6 @@ USAGE
 
 
 BASEDIR=$(dirname "$0")
-echo "$BASEDIR"
 
 CMD=${CMD:=$BASEDIR/wait-for-it.sh}
 
